@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
 import Rooms from "./Pages/Rooms";
 import SingleRoom from "./Pages/SingleRoom";
@@ -9,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 const App = () => {
    return (
       <>
+         <Navbar />
          <Router>
             <Switch>
                <Route exact path="/" children={<Home />}></Route>
