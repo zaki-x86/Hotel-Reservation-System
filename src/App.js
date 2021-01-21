@@ -14,8 +14,8 @@ const App = () => {
          <Router>
             <Switch>
                <Route exact path="/" children={<Home />}></Route>
-               <Route exact path="/rooms/:id" children={<SingleRoom />}></Route>
                <Route exact path="/rooms" children={<Rooms />}></Route>
+               <Route exact path="/rooms/:id" children={<SingleRoom />}></Route>
                <Route children={Error}></Route>
             </Switch>
          </Router>
