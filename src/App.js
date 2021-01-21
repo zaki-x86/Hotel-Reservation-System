@@ -4,22 +4,19 @@ import Home from "./Pages/Home";
 import Rooms from "./Pages/Rooms";
 import SingleRoom from "./Pages/SingleRoom";
 import Error from "./Pages/Error";
-import { Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const App = () => {
    return (
       <>
-         <Switch>
-            <Route exact path="/rooms">
-               <Rooms />
-            </Route>
-            <Route exact path="/single-room">
-               <SingleRoom />
-            </Route>
-            <Route exact path="/">
-               <Home />
-            </Route>
-         </Switch>
+         <Router>
+            <Switch>
+               <Route exact path="/" children={<Home />}></Route>
+               <Route exact path="/rooms/:id" children={<SingleRoom />}></Route>
+               <Route exact path="/rooms" children={<Rooms />}></Route>
+               <Route children={Error}></Route>
+            </Switch>
+         </Router>
       </>
    );
 };

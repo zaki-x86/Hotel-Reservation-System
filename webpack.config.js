@@ -2,12 +2,14 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-   mode: "development" /* remove this code in production */,
-   entry: "./src/index.js",
+   mode: "development",
+   entry: {
+      index: "./src/index.js",
+      print: "./src/print.js",
+   },
+   devtool: "source-map",
    output: {
-      /* where the output bundle code file will saved */
       path: path.resolve(__dirname, "dist"),
-      /* cache busting */
       filename: "index_bundle.[contenthash].js",
    },
    module: {
