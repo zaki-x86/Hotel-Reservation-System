@@ -1,9 +1,18 @@
 import React from "react";
+import Banner from "../Components/Banner";
 import Hero from "../Components/Hero";
-import SingleRoom from "./SingleRoom";
+import { Link } from "react-router-dom";
 
 const Rooms = () => {
-   return <Hero hero="roomsHero"></Hero>;
+   return (
+      <Hero hero="roomsHero">
+         <Banner title="Our Rooms">
+            <Link to="/" className="btn-primary">
+               Return Home
+            </Link>
+         </Banner>
+      </Hero>
+   );
 };
 
 export default Rooms;
