@@ -5,13 +5,7 @@ import Home from "./Pages/Home";
 import Rooms from "./Pages/Rooms";
 import SingleRoom from "./Pages/SingleRoom";
 import Error from "./Pages/Error";
-import {
-   BrowserRouter as Router,
-   Switch,
-   Route,
-   withRouter,
-} from "react-router-dom";
-import { createBrowserHistory } from "history";
+import { Switch, Route } from "react-router-dom";
 
 const App = () => {
    return (

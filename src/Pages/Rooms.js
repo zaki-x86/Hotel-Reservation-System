@@ -1,6 +1,5 @@
 import React from "react";
 import Hero from "../Components/Hero";
-import { withRouter } from "react-router-dom";
 
 const Rooms = () => {
    return (
