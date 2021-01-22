@@ -1,11 +1,8 @@
 import React from "react";
+import Hero from "../Components/Hero";
 
 export const Error = () => {
-   return (
-      <div>
-         <h1>Error Page</h1>
-      </div>
-   );
+   return <Hero></Hero>;
 };
 
 export default Error;
