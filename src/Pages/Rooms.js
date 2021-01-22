@@ -1,6 +1,8 @@
 import React from "react";
+import Hero from "../Components/Hero";
+import { withRouter } from "react-router-dom";
 
-export const Rooms = () => {
+const Rooms = () => {
    return (
       <div>
          <h1>Rooms Page</h1>
