@@ -1,11 +1,12 @@
 import Styled from "styled-components";
 
-/* 
-    This is for testing the components -- will be removed later
-*/
-const SimpleButton = styled.button`
-   color: red;
-   background: green;
+/* Copy CSS props from .roomsHero in App.css */
+const StyledHero = Styled.header`
+   min-height: 60vh;
+   background: url(${(props) => props.img}) center/cover no-repeat;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 `;
 
-export default SimpleButton;
+export default StyledHero;

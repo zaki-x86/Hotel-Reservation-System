@@ -4,6 +4,7 @@ import Hero from "../Components/Hero";
 import Banner from "../Components/Banner";
 import { Link } from "react-router-dom";
 import { RoomContext } from "../context";
+import StyledHero from "../Components/StyledHero";
 
 export default class SingleRoom extends Component {
    constructor(props) {
@@ -53,14 +54,15 @@ export default class SingleRoom extends Component {
       } = room;
 
       return (
-         /* We don't want to display the same hero image for each room - this is only for testing*/
-         <Hero hero="roomsHero">
-            <Banner title={`${name} room`}>
-               <Link to="/rooms" className="btn-primary">
-                  Return to Rooms
-               </Link>
-            </Banner>
-         </Hero>
+         <>
+            <StyledHero img={images[0]}>
+               <Banner title={`${name} room`}>
+                  <Link to="/rooms" className="btn-primary">
+                     Return to Rooms
+                  </Link>
+               </Banner>
+            </StyledHero>
+         </>
       );
    }
 }
