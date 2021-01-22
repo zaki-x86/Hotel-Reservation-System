@@ -31,9 +31,16 @@ class RoomProvider extends Component {
       return tempItems;
    };
 
+   getRoom = (slug) => {
+      let tempRooms = [...this.state.rooms];
+      /* returns only a single room item that matches the condition, unlike, filter() that returns an array of objects that match a condition */
+      const room = tempRooms.find((room) => room.slug === slug);
+      return room;
+   };
+
    render() {
       return (
-         <RoomContext.Provider value={{ ...this.state }}>
+         <RoomContext.Provider value={{ ...this.state, getRoom: this.getRoom }}>
             {this.props.children}
          </RoomContext.Provider>
       );
