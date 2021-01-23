@@ -51,11 +51,36 @@ class RoomProvider extends Component {
       return room;
    };
 
-   handleChange = (e) => {};
+   filterRooms = () => {};
+
+   handleChange = (e) => {
+      /* This is a general function to handle changes in forms: whether it is select-option or checkbox. Hence, we defined the target variable to get its type */
+      let target = e.target;
+      let type =
+         target.type; /* type of targetted element: select or checkbox */
+      let name = target.name; /* name property of that targetted element */
+
+      /* value of targeted element depends on its type: 
+         true/false --> if type is checkbox
+         value --> of type is select */
+      let value = target.type === "checkbox" ? target.checked : target.value;
+      //console.log(name, value, type, e.target.checked);
+      this.setState(
+         {
+            [name]: value,
+         },
+         this.filterRooms /* set a callback func everytime state changes */
+      );
+   };
+
    render() {
       return (
          <RoomContext.Provider
-            value={{ ...this.state, getRoom: this.getRoom, handleChange }}
+            value={{
+               ...this.state,
+               getRoom: this.getRoom,
+               handleChange: this.handleChange,
+            }}
          >
             {this.props.children}
          </RoomContext.Provider>
