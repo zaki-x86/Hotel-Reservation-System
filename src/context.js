@@ -8,11 +8,23 @@ class RoomProvider extends Component {
       sortedRooms: [],
       featuredRooms: [],
       loading: true,
+      /* todo: more state variables for RoomFilter */
+      type: "all",
+      capacity: 1,
+      price: 0,
+      minPice: 0,
+      maxPrice: 0,
+      minSize: 0,
+      maxSize: 0,
+      breakfast: false,
+      pets: false,
    };
 
    componentDidMount() {
       let rooms = this.formatData(items);
       let featuredRooms = rooms.filter((room) => room.featured === true);
+      let maxPrice = Math.max(...rooms.map((room) => room.price));
+      let maxSize = Math.max(...rooms.map((room) => room.size));
       this.setState({
          rooms,
          featuredRooms,
@@ -22,6 +34,7 @@ class RoomProvider extends Component {
    }
 
    formatData = (items) => {
+      /* Furnishes the items from JSON into an easily-accessible rooms object*/
       let tempItems = items.map((item) => {
          let id = item.sys.id;
          let images = item.fields.images.map((image) => image.fields.file.url);

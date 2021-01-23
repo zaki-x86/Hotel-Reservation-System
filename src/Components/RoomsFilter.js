@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
+import RoomContext from "../context";
+import Title from "./Title";
 
-const RoomsFilter = () => {
+const RoomsFilter = ({ rooms }) => {
+   let context = useContext(RoomContext);
+   const {
+      type,
+      capacity,
+      price,
+      minPice,
+      maxPrice,
+      minSize,
+      maxSize,
+      breakfast,
+      pets,
+   } = context;
+
    return (
-      <div>
+      <section className="filter-container">
          <h1>Rooms Filter</h1>
-      </div>
+      </section>
    );
 };
 
