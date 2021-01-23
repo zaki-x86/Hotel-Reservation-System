@@ -26,6 +26,10 @@ const RoomsFilter = ({ rooms }) => {
    let types = getUniqueItems(rooms, "type");
    types = ["all", ...types];
 
+   /* get unique capacity */
+   let occupancy = getUniqueItems(rooms, "capacity");
+   console.log(occupancy);
+
    return (
       <section className="filter-container">
          <Title title="search-rooms" />
@@ -53,6 +57,27 @@ const RoomsFilter = ({ rooms }) => {
                </select>
             </div>
             {/* End of selectType */}
+
+            {/* Guests */}
+            <div className="form-group">
+               <label htmlFor="capacity">Guests</label>
+               <select
+                  name="capacity"
+                  id="capacity"
+                  value={capacity}
+                  className="form-control"
+                  onChange={handleChange}
+               >
+                  {occupancy.map((item, index) => {
+                     return (
+                        <option value={item} key={index}>
+                           {item}
+                        </option>
+                     );
+                  })}
+               </select>
+            </div>
+            {/* End of Guests */}
          </form>
       </section>
    );
