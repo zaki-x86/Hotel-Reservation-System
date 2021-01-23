@@ -51,7 +51,28 @@ class RoomProvider extends Component {
       return room;
    };
 
-   filterRooms = () => {};
+   filterRooms = () => {
+      let {
+         rooms,
+         type,
+         capacity,
+         price,
+         minPice,
+         maxPrice,
+         minSize,
+         maxSize,
+         breakfast,
+         pets,
+      } = this.state;
+
+      let tempRooms = [...rooms];
+
+      if (type !== "all") {
+         /* get rooms that matches the selected type */
+         tempRooms = tempRooms.filter((room) => room.type === type);
+         this.setState({ sortedRooms: tempRooms });
+      }
+   };
 
    handleChange = (e) => {
       /* This is a general function to handle changes in forms: whether it is select-option or checkbox. Hence, we defined the target variable to get its type */
