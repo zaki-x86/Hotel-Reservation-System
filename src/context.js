@@ -47,6 +47,6 @@ class RoomProvider extends Component {
    }
 }
 
-const RoomConsumer = RoomContext.RoomConsumer;
+const RoomConsumer = RoomContext.Consumer;
 
 export { RoomProvider, RoomConsumer, RoomContext };
